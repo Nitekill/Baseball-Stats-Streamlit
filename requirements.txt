@@ -1,0 +1,6 @@
+streamlit
+pandas
+numpy
+pybaseball
+plotly
+requests

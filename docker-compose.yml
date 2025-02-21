@@ -1,0 +1,21 @@
+services:
+  baseball-stats:
+    env_file: "League_Info.env"
+    build: .
+    container_name: baseball-stats
+    ports:
+      - "8501:8501"
+    restart: always
+    entrypoint: >
+      sh -c "
+        while true; do
+          streamlit run InSeasonStats.py &&
+          sleep_until=$$(date -d '4:00' '+%s') &&
+          current=$$(date '+%s') &&
+          if [ $$sleep_until -le $$current ]; then
+            sleep_until=$$(date -d 'tomorrow 4:00' '+%s');
+          fi &&
+          sleep $$((sleep_until - current)) &&
+          kill $$(pgrep -f 'streamlit run')
+        done
+      "
