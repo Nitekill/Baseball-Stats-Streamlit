@@ -29,7 +29,7 @@ Data Sources:
 - MLB Statistics: pybaseball library
 - Fantasy Data: Fantrax API
 
-Author: Nate Killian
+Author: Nitekill
 Created: 20-JAN-2025
 Last Updated: 17-FEB-2025
 Version: 1.0.0
